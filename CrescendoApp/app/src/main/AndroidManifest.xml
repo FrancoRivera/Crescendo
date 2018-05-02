@@ -21,7 +21,11 @@
         </activity>
         <activity
             android:name=".viewcontrollers.activities.MainActivity"
-            android:label="@string/title_activity_main"></activity>
+            android:label="@string/title_activity_main" />
+        <activity
+            android:name=".viewcontrollers.activities.ArtistDetailActivity"
+            android:label="@string/title_activity_artist_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
