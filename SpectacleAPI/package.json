@@ -1,0 +1,25 @@
+{
+  "name": "crescendo-api-spectacle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd dist/ && serve .",
+    "yaml2json": "yaml2json api.yaml > api.json",
+    "dev": "npm run yaml2json && spectacle -D api.json",
+    "build": "npm run yaml2json && spectacle -t dist api.json",
+    "deploy": "now --public && now alias"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^6.5.6",
+    "spectacle-docs": "^1.0.3",
+    "yamljs": "^0.3.0"
+  },
+  "now": {
+    "name": "crescendo-api-spectacle",
+    "alias": "crescendo-api-spectacle"
+  }
+}
