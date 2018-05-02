@@ -5,8 +5,8 @@
     <string name="title_artists">Artists</string>
     <string name="title_favorites">Favorites</string>
     <string name="title_demos">Demos</string>
-    <string name="text_user_label">User:</string>
-    <string name="text_password_label">Password:</string>
+    <string name="text_user_label">User</string>
+    <string name="text_password_label">Password</string>
     <string name="button_login_label">Login</string>
 
     <!-- TODO: Remove or change this placeholder text -->

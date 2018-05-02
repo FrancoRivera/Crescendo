@@ -1,4 +1,4 @@
-package com.forkd.crescendo.activities;
+package com.forkd.crescendo.viewcontrollers.activities;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,10 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.forkd.crescendo.R;
-import com.forkd.crescendo.fragments.ArtistsFragment;
-import com.forkd.crescendo.fragments.DemosFragment;
-import com.forkd.crescendo.fragments.FavoritesFragment;
-import com.forkd.crescendo.fragments.ProfileFragment;
+import com.forkd.crescendo.viewcontrollers.fragments.ArtistsFragment;
+import com.forkd.crescendo.viewcontrollers.fragments.DemosFragment;
+import com.forkd.crescendo.viewcontrollers.fragments.FavoritesFragment;
+import com.forkd.crescendo.viewcontrollers.fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 

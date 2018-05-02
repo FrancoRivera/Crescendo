@@ -1,4 +1,4 @@
-package com.forkd.crescendo.fragments;
+package com.forkd.crescendo.viewcontrollers.fragments;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import com.forkd.crescendo.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DemosFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
 
-    public DemosFragment() {
+    public ProfileFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class DemosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_demos, container, false);
+        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
 }
