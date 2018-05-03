@@ -1,0 +1,43 @@
+swagger: "2.0"
+info:
+  description: "Crescendo App API Documentation"
+  version: "1.0.0"
+  title: "Crescendo API"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "https://crescendo-api-tirwrpcnoo.now.sh/"
+tags:
+- name: "user"
+  description: "Operaciones para usuarios"
+schemes:
+- "http"
+paths:
+ /user:
+  post:
+    tags:
+    - "user"
+    summary: "Crear un usuario"
+    description: "Crea un usuario completo"
+    operationId: "createUser"
+    produces:
+    - "application/json"
+    parameters:
+    - in: "body"
+      name: "body"
+      description: "Datos completos del usuario"
+      required: true
+      schema:
+        type: "object"
+        properties:
+          email:
+            type: "string"
+          password:
+            type: "string"
+          name:
+            type: "string"
+          userPic:
+            type: "string"
+      responses:
+        default:
+          description: "User Successfully Created"
