@@ -70,6 +70,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         public void updatesViews(final User user) {
             imageUser.setDefaultImageResId(R.mipmap.ic_launcher);
             imageUser.setErrorImageResId(R.mipmap.ic_launcher);
+            imageUser.setImageUrl(user.getAvatar());
             textName.setText(user.getName());
             musicRole.setText(user.getMusicRole());
             musicGenre.setText(user.getMusicGenre());

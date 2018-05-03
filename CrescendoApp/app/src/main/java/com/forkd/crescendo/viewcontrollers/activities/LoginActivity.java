@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             Log.d("CrescendoAppSuccess", response.getString("accessToken"));
 
-//                            writeToSharedPreferences(response.getString("accessToken"));
+                            writeToSharedPreferences(response.getString("accessToken"));
                             isAllowed = true;
                         } catch (JSONException e) {
                             e.printStackTrace();

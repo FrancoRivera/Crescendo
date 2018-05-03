@@ -41,7 +41,6 @@ public class DemosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        JWT = getArguments().getString("jwt");
         View view=inflater.inflate(R.layout.fragment_demos, container, false);
         demosRecyclerView=(RecyclerView) view.findViewById(R.id.recycler_demos);
         artworks=new ArrayList<>();
