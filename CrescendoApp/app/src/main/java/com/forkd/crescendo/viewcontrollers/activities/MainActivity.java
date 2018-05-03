@@ -1,5 +1,6 @@
 package com.forkd.crescendo.viewcontrollers.activities;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        readJWT();
         setContentView(R.layout.activity_main);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -36,7 +38,16 @@ public class MainActivity extends AppCompatActivity {
 
     private Fragment getFragmentFor(MenuItem item){
         switch (item.getItemId()) {
-            case R.id.navigation_artists: return new ArtistsFragment();
+            case R.id.navigation_artists:
+
+                Bundle bundle = new Bundle();
+                bundle.putString("jwt", readJWT());
+
+                Fragment artistsFragment = new ArtistsFragment();
+                artistsFragment.setArguments(bundle);
+
+                return artistsFragment;
+
             case R.id.navigation_favorites:return new FavoritesFragment();
             case R.id.navigation_demos:return new DemosFragment();
             case R.id.navigation_profile:return new ProfileFragment();
@@ -49,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.content,getFragmentFor(item))
                 .commit()>0;
+    }
+
+
+    private String readJWT() {
+        SharedPreferences prefs = getSharedPreferences("accesstoken", MODE_PRIVATE);
+        String restoredToken = prefs.getString("jwt", null);
+        return restoredToken;
     }
 
 

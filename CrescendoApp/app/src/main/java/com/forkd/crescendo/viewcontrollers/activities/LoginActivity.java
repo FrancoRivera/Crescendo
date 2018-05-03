@@ -85,8 +85,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private void writeToSharedPreferences(String accessToken) {
 
-        SharedPreferences sharedPref = LoginActivity.this.getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
+//        SharedPreferences sharedPref = LoginActivity.this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = getSharedPreferences("accesstoken", MODE_PRIVATE).edit();
+
         editor.putString("jwt", accessToken);
         editor.commit();
     }

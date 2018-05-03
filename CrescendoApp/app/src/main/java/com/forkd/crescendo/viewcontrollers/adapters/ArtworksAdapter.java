@@ -1,4 +1,4 @@
-package com.forkd.crescendo.adapters;
+package com.forkd.crescendo.viewcontrollers.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

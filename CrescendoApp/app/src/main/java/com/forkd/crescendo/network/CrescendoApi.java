@@ -6,4 +6,7 @@ public class CrescendoApi {
     public static String authentication() {
         return BASE_URL + "authentication";
     }
+    public static String getUsers() {
+        return BASE_URL + "users";
+    }
 }
