@@ -119,7 +119,7 @@ public class Artwork implements Parcelable{
         public static Builder from(Bundle bundle) {
             return new Builder(new Artwork(
                     bundle.getString("videoURL"),
-                    bundle.getString("name"),
+                    bundle.getString("description"),
                     bundle.getString("title")));
         }
 
@@ -127,7 +127,7 @@ public class Artwork implements Parcelable{
             try {
                 return new Builder(new Artwork(
                         jsonArkwork.getString("videoURL"),
-                        jsonArkwork.getString("name"),
+                        jsonArkwork.getString("description"),
                         jsonArkwork.getString("title")));
             } catch (JSONException e) {
                 e.printStackTrace();

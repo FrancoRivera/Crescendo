@@ -3,29 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_user"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+
+    android:background="@drawable/customborder">
 
     <com.androidnetworking.widget.ANImageView
         android:id="@+id/image_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/default_margin"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginStart="3dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/text_name"
         android:src="@mipmap/ic_launcher"
         />
     <ImageView
         android:id="@+id/image_favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/default_margin"
+        android:layout_marginEnd="3dp"
+        android:layout_marginTop="3dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_favorite_border_black_24dp"/>
     <TextView
         android:id="@+id/text_name"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         app:layout_constraintStart_toEndOf="@id/image_user"
@@ -37,6 +41,7 @@
         android:id="@+id/text_music_role"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:layout_margin="@dimen/default_margin"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/image_favorite"
@@ -46,6 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/text_music_role"
         app:layout_constraintEnd_toStartOf="@id/image_favorite"
         android:text="@string/mock_text"
