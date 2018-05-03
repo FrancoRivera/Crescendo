@@ -13,11 +13,13 @@ public class Artwork {
     private String videoUrl;
     private String description;
     private String title;
+    private String thumbnail;
 
-    public Artwork(String videoUrl, String description, String title) {
+    public Artwork(String videoUrl, String description, String title, String thumbnail) {
         this.videoUrl = videoUrl;
         this.description = description;
         this.title = title;
+        this.thumbnail = thumbnail;
     }
 
     public Artwork() {
@@ -50,11 +52,21 @@ public class Artwork {
         return this;
     }
 
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public Artwork setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+        return this;
+    }
+
     public Bundle toBundle() {
         Bundle bundle = new Bundle();
         bundle.putString("videoURL", getVideoUrl());
         bundle.putString("description", getDescription());
         bundle.putString("title", getTitle());
+        bundle.putString("thumbnail", getThumbnail());
         return bundle;
     }
 
@@ -86,16 +98,18 @@ public class Artwork {
         public static Builder from(Bundle bundle) {
             return new Builder(new Artwork(
                     bundle.getString("videoURL"),
-                    bundle.getString("name"),
-                    bundle.getString("title")));
+                    bundle.getString("description"),
+                    bundle.getString("title"),
+                    bundle.getString("thumbnail")));
         }
 
         public static Builder from(JSONObject jsonArkwork) {
             try {
                 return new Builder(new Artwork(
                         jsonArkwork.getString("videoURL"),
-                        jsonArkwork.getString("name"),
-                        jsonArkwork.getString("title")));
+                        jsonArkwork.getString("description"),
+                        jsonArkwork.getString("title"),
+                        jsonArkwork.getString("thumbnail")));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

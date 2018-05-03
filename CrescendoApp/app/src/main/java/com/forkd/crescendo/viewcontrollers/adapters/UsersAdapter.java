@@ -73,7 +73,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
             textName.setText(user.getName());
             musicRole.setText(user.getMusicRole());
             musicGenre.setText(user.getMusicGenre());
-            age.setText(user.getBirthday()); // needs an age func
+            age.setText(String.valueOf(user.getAge()));
         }
     }
 }

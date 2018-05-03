@@ -7,57 +7,38 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+
 public class User {
-    private String email;
-    private String password;
+
     private String name;
-    private String userPic;
-    private String musicRole;
-    private String musicGenre;
-    private String birthday;
+    private String email;
+    private String avatar;
     private String location;
     private String district;
-    private int followerCount;
-    private int artworkCount;
-    private Artwork artwork;
+    private String musicRole;
+    private String musicGenre;
+    private String followerCount;
+    private List<Artwork> artworks;
+    private int age;
+    private String id;
 
-    public User(String email, String password, String name, String userPic, String musicRole, String musicGenre, String birthday, String location, String district, int followerCount, int artworkCount, Artwork artwork) {
-        this.email = email;
-        this.password = password;
+    public User(String name, String email, String avatar, String location, String district, String musicRole, String musicGenre, String followerCount, List<Artwork> artworks, int age, String id) {
         this.name = name;
-        this.userPic = userPic;
-        this.musicRole = musicRole;
-        this.musicGenre = musicGenre;
-        this.birthday = birthday;
+        this.email = email;
+        this.avatar = avatar;
         this.location = location;
         this.district = district;
+        this.musicRole = musicRole;
+        this.musicGenre = musicGenre;
         this.followerCount = followerCount;
-        this.artworkCount = artworkCount;
-        this.artwork = artwork;
+        this.artworks = artworks;
+        this.age = age;
+        this.id = id;
     }
 
     public User() {
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public User setEmail(String email) {
-        this.email = email;
-        return this;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public User setPassword(String password) {
-        this.password = password;
-        return this;
     }
 
     public String getName() {
@@ -69,39 +50,21 @@ public class User {
         return this;
     }
 
-    public String getUserPic() {
-        return userPic;
+    public String getEmail() {
+        return email;
     }
 
-    public User setUserPic(String userPic) {
-        this.userPic = userPic;
+    public User setEmail(String email) {
+        this.email = email;
         return this;
     }
 
-    public String getMusicRole() {
-        return musicRole;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public User setMusicRole(String musicRole) {
-        this.musicRole = musicRole;
-        return this;
-    }
-
-    public String getMusicGenre() {
-        return musicGenre;
-    }
-
-    public User setMusicGenre(String musicGenre) {
-        this.musicGenre = musicGenre;
-        return this;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public User setBirthday(String birthday) {
-        this.birthday = birthday;
+    public User setAvatar(String avatar) {
+        this.avatar = avatar;
         return this;
     }
 
@@ -123,53 +86,63 @@ public class User {
         return this;
     }
 
-    public int getFollowerCount() {
+    public String getMusicRole() {
+        return musicRole;
+    }
+
+    public User setMusicRole(String musicRole) {
+        this.musicRole = musicRole;
+        return this;
+    }
+
+    public String getMusicGenre() {
+        return musicGenre;
+    }
+
+    public User setMusicGenre(String musicGenre) {
+        this.musicGenre = musicGenre;
+        return this;
+    }
+
+    public String getFollowerCount() {
         return followerCount;
     }
 
-    public User setFollowerCount(int followerCount) {
+    public User setFollowerCount(String followerCount) {
         this.followerCount = followerCount;
         return this;
     }
 
-    public int getArtworkCount() {
-        return artworkCount;
+    public List<Artwork> getArtworks() {
+        return artworks;
     }
 
-    public User setArtworkCount(int artworkCount) {
-        this.artworkCount = artworkCount;
+    public User setArtworks(List<Artwork> artworks) {
+        this.artworks = artworks;
         return this;
     }
 
-    public Artwork getArtwork() {
-        return artwork;
+    public int getAge() {
+        return age;
     }
 
-    public User setArtwork(Artwork artwork) {
-        this.artwork = artwork;
+    public User setAge(int age) {
+        this.age = age;
         return this;
     }
 
-    public Bundle toBundle() {
-        Bundle bundle = new Bundle();
-        bundle.putString("email", getEmail());
-        bundle.putString("password", getPassword());
-        bundle.putString("userPic", getUserPic());
-        bundle.putString("musicRole", getMusicRole());
-        bundle.putString("musicGenre", getMusicGenre());
-        bundle.putString("birthdayTimestamp", getBirthday());
-        bundle.putString("location", getLocation());
-        bundle.putString("district", getDistrict());
-        bundle.putInt("followerCount", getFollowerCount());
-        bundle.putInt("artworkCount", getArtworkCount());
-        bundle.putBundle("artworks", getArtwork().toBundle());
-        return bundle;
+    public String getId() {
+        return id;
+    }
+
+    public User setId(String id) {
+        this.id = id;
+        return this;
     }
 
     public static class Builder {
         private User user;
         private List<User> users;
-
 
         public Builder(User user, List<User> users) {
             this.user = user;
@@ -194,35 +167,33 @@ public class User {
 
         public static Builder from(Bundle bundle) {
             return new Builder(new User(
-                    bundle.getString("email"),
-                    bundle.getString("password"),
                     bundle.getString("name"),
-                    bundle.getString("usePic"),
-                    bundle.getString("musicRole"),
-                    bundle.getString("musicGenre"),
-                    bundle.getString("birthdayTimestamp"),
+                    bundle.getString("email"),
+                    bundle.getString("avatar"),
                     bundle.getString("location"),
                     bundle.getString("district"),
-                    bundle.getInt("followerCount"),
-                    bundle.getInt("artworkCount"),
-                    Artwork.Builder.from(bundle.getBundle("artworks")).build()));
+                    bundle.getString("musicRole"),
+                    bundle.getString("musicGenre"),
+                    bundle.getString("followerCount"),
+                    Artwork.Builder.from(bundle.getBundle("artworks")).buildAll(),
+                    bundle.getInt("age"),
+                    bundle.getString("_id")));
         }
 
         public static Builder from(JSONObject jsonUser) {
             try {
                 return new Builder(new User(
-                        jsonUser.getString("email"),
-                        jsonUser.getString("password"),
                         jsonUser.getString("name"),
-                        jsonUser.getString("usePic"),
-                        jsonUser.getString("musicRole"),
-                        jsonUser.getString("musicGenre"),
-                        jsonUser.getString("birthdayTimestamp"),
+                        jsonUser.getString("email"),
+                        jsonUser.getString("avatar"),
                         jsonUser.getString("location"),
                         jsonUser.getString("district"),
-                        jsonUser.getInt("followerCount"),
-                        jsonUser.getInt("artworkCount"),
-                        Artwork.Builder.from(jsonUser.getJSONObject("artworks")).build()));
+                        jsonUser.getString("musicRole"),
+                        jsonUser.getString("musicGenre"),
+                        jsonUser.getString("followerCount"),
+                        Artwork.Builder.from(jsonUser.getJSONArray("artworks")).buildAll(),
+                        jsonUser.getInt("age"),
+                        jsonUser.getString("_id")));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -242,7 +213,7 @@ public class User {
             }
             return new Builder(users);
         }
-    }
 
+    }
 }
 

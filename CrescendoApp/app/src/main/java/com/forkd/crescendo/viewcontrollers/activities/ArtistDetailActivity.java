@@ -53,7 +53,7 @@ public class ArtistDetailActivity extends AppCompatActivity {
         textName.setText(user.getName());
         musicRole.setText(user.getMusicRole());
         musicGenre.setText(user.getMusicGenre());
-        artworksCount.setText(String.valueOf(user.getArtworkCount()));
+        artworksCount.setText(String.valueOf(user.getFollowerCount()));
         followersCount.setText(String.valueOf(user.getFollowerCount()));
     }
 
