@@ -6,6 +6,7 @@
   "scripts": {
     "generate": "cross-var babel index.js | node",
     "fetchMusic": "cross-var babel fetchMusicVideos.js | node",
+    "migrate": "cross-var babel migrate.js | node",
     "runUpdate": "cross-var babel $UPDATE | node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
