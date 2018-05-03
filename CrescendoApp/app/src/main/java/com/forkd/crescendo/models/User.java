@@ -1,6 +1,7 @@
 package com.forkd.crescendo.models;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,11 +21,11 @@ public class User {
     private String musicRole;
     private String musicGenre;
     private String followerCount;
-    private List<Artwork> artworks;
+    private ArrayList<Artwork> artworks=new ArrayList<Artwork>();
     private int age;
     private String id;
 
-    public User(String name, String email, String avatar, String location, String district, String musicRole, String musicGenre, String followerCount, List<Artwork> artworks, int age, String id) {
+    public User(String name, String email, String avatar, String location, String district, String musicRole, String musicGenre, String followerCount, ArrayList<Artwork> artworks, int age, String id) {
         this.name = name;
         this.email = email;
         this.avatar = avatar;
@@ -113,11 +114,11 @@ public class User {
         return this;
     }
 
-    public List<Artwork> getArtworks() {
+    public ArrayList<Artwork> getArtworks() {
         return artworks;
     }
 
-    public User setArtworks(List<Artwork> artworks) {
+    public User setArtworks(ArrayList<Artwork> artworks) {
         this.artworks = artworks;
         return this;
     }
@@ -140,6 +141,21 @@ public class User {
         return this;
     }
 
+    public Bundle toBundle() {
+        Bundle bundle = new Bundle();
+        bundle.putString("name",getName());
+        bundle.putString("email",getEmail());
+        bundle.putString("avatar",getAvatar());
+        bundle.putString("location",getLocation());
+        bundle.putString("distric",getDistrict());
+        bundle.putString("musicRole",getMusicRole());
+        bundle.putString("musicGenre",getMusicGenre());
+        bundle.putString("followerCount",getFollowerCount());
+        bundle.putInt("age",getAge());
+        bundle.putString("_id",getId());
+        bundle.putParcelableArrayList("artworks",getArtworks());
+        return bundle;
+    }
     public static class Builder {
         private User user;
         private List<User> users;
