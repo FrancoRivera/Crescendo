@@ -8,7 +8,7 @@ if (!configuration.CRESCENDO_AUTH_TOKEN) {
   throw new Error("Environment variables not found!");
 }
 
-const requestURL = "https://crescendo-app.herokuapp.com/users";
+const requestURL = "https://crescendo-api-tirwrpcnoo.now.sh/users";
 
 const startMigrating = async () => {
   const promises = users.map(u =>
