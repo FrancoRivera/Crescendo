@@ -25,7 +25,7 @@ public class User {
     private int age;
     private String id;
 
-    public User(String name, String email, String avatar, String location, String district, String musicRole, String musicGenre, String followerCount, ArrayList<Artwork> artworks, int age, String id) {
+    public User(String name, String email, String avatar, String location, String district, String musicRole, String musicGenre, String followerCount, int age, String id) {
         this.name = name;
         this.email = email;
         this.avatar = avatar;
@@ -34,7 +34,6 @@ public class User {
         this.musicRole = musicRole;
         this.musicGenre = musicGenre;
         this.followerCount = followerCount;
-        this.artworks = artworks;
         this.age = age;
         this.id = id;
     }
@@ -153,7 +152,6 @@ public class User {
         bundle.putString("followerCount",getFollowerCount());
         bundle.putInt("age",getAge());
         bundle.putString("_id",getId());
-        bundle.putParcelableArrayList("artworks",getArtworks());
         return bundle;
     }
     public static class Builder {
@@ -191,7 +189,6 @@ public class User {
                     bundle.getString("musicRole"),
                     bundle.getString("musicGenre"),
                     bundle.getString("followerCount"),
-                    Artwork.Builder.from(bundle.getBundle("artworks")).buildAll(),
                     bundle.getInt("age"),
                     bundle.getString("_id")));
         }
@@ -207,7 +204,6 @@ public class User {
                         jsonUser.getString("musicRole"),
                         jsonUser.getString("musicGenre"),
                         jsonUser.getString("followerCount"),
-                        Artwork.Builder.from(jsonUser.getJSONArray("artworks")).buildAll(),
                         jsonUser.getInt("age"),
                         jsonUser.getString("_id")));
             } catch (JSONException e) {

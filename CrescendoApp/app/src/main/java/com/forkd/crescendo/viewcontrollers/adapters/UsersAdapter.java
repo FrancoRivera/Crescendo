@@ -1,5 +1,8 @@
 package com.forkd.crescendo.viewcontrollers.adapters;
 
+import android.content.Context;
+import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +12,7 @@ import android.widget.TextView;
 import com.androidnetworking.widget.ANImageView;
 import com.forkd.crescendo.R;
 import com.forkd.crescendo.models.User;
+import com.forkd.crescendo.viewcontrollers.activities.ArtistDetailActivity;
 
 import java.util.List;
 
@@ -58,6 +62,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         private TextView musicRole;
         private TextView musicGenre;
         private TextView age;
+        private ConstraintLayout userLayout;
         public ViewHolder(View view) {
             super(view);
             imageUser = (ANImageView) view.findViewById(R.id.image_user);
@@ -65,6 +70,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
             musicRole = (TextView) view.findViewById(R.id.text_music_role);
             musicGenre = (TextView) view.findViewById(R.id.text_music_genre);
             age = (TextView) view.findViewById(R.id.text_age);
+            userLayout = (ConstraintLayout) view.findViewById(R.id.layout_user);
         }
 
         public void updatesViews(final User user) {
@@ -75,6 +81,15 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
             musicRole.setText(user.getMusicRole());
             musicGenre.setText(user.getMusicGenre());
             age.setText(String.valueOf(user.getAge()));
+            userLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Context context = view.getContext();
+                    context.startActivity(new Intent(
+                            context, ArtistDetailActivity.class
+                    ).putExtras(user.toBundle()));
+                }
+            });
         }
     }
 }

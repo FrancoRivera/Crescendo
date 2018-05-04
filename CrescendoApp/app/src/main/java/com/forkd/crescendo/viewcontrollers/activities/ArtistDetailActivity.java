@@ -49,6 +49,7 @@ public class ArtistDetailActivity extends AppCompatActivity {
     private void updateViews(final User user) {
         imageUser.setDefaultImageResId(R.mipmap.ic_launcher);
         imageUser.setErrorImageResId(R.mipmap.ic_launcher);
+        imageUser.setImageUrl(user.getAvatar());
 
         textName.setText(user.getName());
         musicRole.setText(user.getMusicRole());
