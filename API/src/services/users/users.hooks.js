@@ -7,7 +7,12 @@ const {
 module.exports = {
   before: {
     all: [],
-    find: [ authenticate('jwt') ],
+    find: [ authenticate('jwt'),function(hook){
+      if(hook.params.query.$limit === '-1') {
+        hook.params.paginate = false;
+        delete hook.params.query.$limit;
+      }
+    } ],
     get: [ authenticate('jwt') ],
     create: [ hashPassword() ],
     update: [ hashPassword(),  authenticate('jwt') ],
@@ -16,7 +21,7 @@ module.exports = {
   },
 
   after: {
-    all: [ 
+    all: [
       // Make sure the password field is never sent to the client
       // Always must be the last hook
       protect('password')
