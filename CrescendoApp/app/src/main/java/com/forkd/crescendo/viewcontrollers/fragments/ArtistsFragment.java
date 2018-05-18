@@ -1,8 +1,6 @@
 package com.forkd.crescendo.viewcontrollers.fragments;
 
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +16,7 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.forkd.crescendo.R;
 import com.forkd.crescendo.models.User;
 import com.forkd.crescendo.network.CrescendoApi;
+import com.forkd.crescendo.viewcontrollers.adapters.FavoritesAdapter;
 import com.forkd.crescendo.viewcontrollers.adapters.UsersAdapter;
 
 import org.json.JSONException;
@@ -25,8 +24,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.

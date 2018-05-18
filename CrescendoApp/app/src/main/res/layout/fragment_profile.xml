@@ -13,13 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.androidnetworking.widget.ANImageView
+        <ImageView
             android:id="@+id/image_user"
             android:layout_width="match_parent"
             android:layout_height="@dimen/image_big_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/applogo"
             />
         <TextView
             android:id="@+id/text_name"
@@ -31,7 +32,7 @@
             android:textColor="@color/colorAccent"
             android:textStyle="bold"
             android:textSize="@dimen/text_title_size"
-            android:text="@string/mock_text"/>
+            android:text="Ricardo"/>
         <TextView
             android:id="@+id/text_music_role"
             android:layout_width="wrap_content"
@@ -39,7 +40,7 @@
             android:layout_margin="@dimen/default_margin"
             app:layout_constraintTop_toBottomOf="@id/text_name"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/mock_text"/>
+            android:text="Baterista"/>
         <TextView
             android:id="@+id/text_music_genre"
             android:layout_width="wrap_content"
@@ -47,7 +48,7 @@
             android:layout_margin="@dimen/default_margin"
             app:layout_constraintTop_toBottomOf="@id/text_name"
             app:layout_constraintStart_toEndOf="@id/text_music_role"
-            android:text="@string/mock_text"/>
+            android:text="Salsa"/>
         <TextView
             android:id="@+id/text_artwoks_label"
             android:layout_width="wrap_content"
@@ -67,7 +68,7 @@
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/text_music_role"
             app:layout_constraintStart_toEndOf="@id/text_artwoks_label"
-            android:text="@string/mock_text"
+            android:text="12"
             />
         <TextView
             android:id="@+id/text_followers_label"
@@ -88,7 +89,7 @@
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/text_music_role"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/mock_text"
+            android:text="23"
             />
 
     </android.support.constraint.ConstraintLayout>
