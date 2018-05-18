@@ -14,10 +14,7 @@
     "deploy": "now --public && now alias"
   },
   "dependencies": {
-    "bootstrap-vue": "^2.0.0-rc.2",
-    "jarallax": "^1.10.3",
-    "nuxt": "^1.4.0",
-    "to-capital-case": "^1.0.0"
+    "nuxt": "^1.4.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
