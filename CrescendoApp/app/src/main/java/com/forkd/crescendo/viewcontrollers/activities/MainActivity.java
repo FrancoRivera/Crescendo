@@ -48,7 +48,14 @@ public class MainActivity extends AppCompatActivity {
 
                 return artistsFragment;
 
-            case R.id.navigation_favorites:return new FavoritesFragment();
+            case R.id.navigation_favorites:
+
+                Bundle bundlefavorites = new Bundle();
+                bundlefavorites.putString("jwt", readJWT());
+
+                Fragment favoritesFragment = new FavoritesFragment();
+                favoritesFragment.setArguments(bundlefavorites);
+                return favoritesFragment;
             case R.id.navigation_demos:return new DemosFragment();
             case R.id.navigation_profile:return new ProfileFragment();
             default:return  new ArtistsFragment();

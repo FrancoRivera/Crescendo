@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -46,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
                                 editTextPassword.getText().toString())) {
                             startActivity(new Intent(v.getContext(), MainActivity.class));
                         }
-
                     }
                 });
     }
@@ -78,6 +78,8 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onError(ANError anError) {
                         Log.d("CrescendoAppFail", anError.getErrorDetail());
+                        Toast.makeText(LoginActivity.this, "User and password is not correct",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
 
