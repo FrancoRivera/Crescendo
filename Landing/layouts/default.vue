@@ -1,17 +1,9 @@
 <template>
-  <div>
-    <nuxt />
-    <the-footer />
-  </div>
+  <nuxt />
 </template>
 
 <script>
-import TheFooter from '~/components/TheFooter'
-
 export default {
   name: 'default-layout',
-  components: {
-    TheFooter
-  }
 }
 </script>
